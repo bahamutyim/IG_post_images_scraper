@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(npx vitest:*)",
+      "Bash(npx playwright:*)",
+      "Bash(npm run:*)",
+      "Bash(curl -s --max-time 60 \"http://localhost:3000/api/instagram-image?url=https://www.instagram.com/p/C1a/\")",
+      "Bash(curl -s --max-time 45 \"http://localhost:3000/api/instagram-image?url=https://www.instagram.com/p/C1a/\")",
+      "Bash(curl -s --max-time 45 \"http://localhost:3000/api/instagram-image?url=https://www.instagram.com/p/DM43Tt2xCTQ/\")",
+      "Bash(curl -s --max-time 60 \"http://localhost:3000/api/instagram-image?url=https://www.instagram.com/p/DM43Tt2xCTQ/\")",
+      "Bash(netstat -ano)",
+      "Bash(findstr \":3000\")",
+      "Bash(curl -sI --max-time 10 \"https://scontent-hkg4-1.cdninstagram.com/v/t51.82787-15/526877382_18514980868006229_9002040706573669748_n.jpg?stp=c288.0.864.864a_dst-jpg_e35__tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=CEh2SuxN6JwQ7kNvwGuQuoD&_nc_oc=Adq_6Fy6_ZXCElKzqj6FAqkkmysrXzuQ5bCC8kWtlLSDbkUBAcTNlldB5yVxYa1ouBY&_nc_zt=23&_nc_ht=scontent-hkg4-1.cdninstagram.com&_nc_gid=VqJGeqZhwVx8aiNTeKrM1w&_nc_ss=7a689&oh=00_Af4bVw-OW_usO8gsI43Ic63XOYKi1xJ0YTVFUSGrl_0nGA&oe=6A01F604\")",
+      "Bash(curl -sI \"https://scontent-hkg4-1.cdninstagram.com/v/t51.82787-15/526877382_18514980868006229_9002040706573669748_n.jpg?stp=dst-jpg_e35&_nc_cat=108\")",
+      "Bash(curl -sI --max-time 10 \"https://scontent-hkg4-1.cdninstagram.com/v/t51.82787-15/526877382_18514980868006229_9002040706573669748_n.jpg?stp=c288.0.864.864a_dst-jpg_e35__tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=CEh2SuxN6JwQ7kNvwGuQuoD&_nc_oc=Adq_6Fy6_ZXCElKzqj6FAqkkmysrXzuQ5bCC8kWtlLSDbkUBAcTNlldB5yVxYa1ouBY&_nc_zt=23&_nc_ht=scontent-hkg4-1.cdninstagram.com&_nc_gid=23WKe4L14hRd9iIdDPiSCw&_nc_ss=7b689&oh=00_Af66b_lTJhAK6LyIBDd9HZPpUYhOCVA25rB_agXjn3bR_g&oe=6A01F604\")",
+      "Bash(node:*)",
+      "Bash(curl:*)"
+    ]
+  }
+}

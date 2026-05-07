@@ -1,0 +1,16 @@
+server:
+  port: 3000
+
+browser:
+  launchTimeout: 60000
+  navigationTimeout: 30000
+  userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+  viewportWidth: 1920
+  viewportHeight: 1080
+
+scraping:
+  maxConcurrent: 3
+  rateLimitWindowMs: 60000
+  maxRetries: 2
+  retryDelayMs: 5000
+  pageWaitMs: 1000
