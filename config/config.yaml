@@ -14,3 +14,7 @@ scraping:
   maxRetries: 2
   retryDelayMs: 5000
   pageWaitMs: 1000
+
+instagram:
+  cookiesFile: "D:\\raymond\\ig2.json"
+

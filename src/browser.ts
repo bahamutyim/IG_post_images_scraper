@@ -1,5 +1,7 @@
+import fs from 'fs';
+import path from 'path';
 import { chromium } from 'playwright';
-import { Browser, BrowserContext, Page } from 'playwright';
+import { Browser, BrowserContext, Cookie, Page } from 'playwright';
 import { AppConfig } from './config';
 
 let browserInstance: Browser | null = null;
@@ -43,6 +45,21 @@ export class BrowserManager {
         Referer: 'https://www.instagram.com/',
       },
     });
+
+    // Import cookies if configured
+    const cookiesFile = this.config.instagram?.cookiesFile;
+    console.log('Cookies file path:', cookiesFile);
+    console.log('Cookies file exists:', cookiesFile ? fs.existsSync(cookiesFile) : 'No path provided');
+    if (cookiesFile && fs.existsSync(cookiesFile)) {
+      try {
+        const raw = fs.readFileSync(cookiesFile, 'utf-8');
+        const cookies: Cookie[] = JSON.parse(raw);
+        await context.addCookies(cookies);
+        console.log(`Loaded ${cookies.length} cookies from ${cookiesFile}`);
+      } catch (e) {
+        console.error('Failed to load cookies:', e instanceof Error ? e.message : e);
+      }
+    }
 
     const page = await context.newPage();
     page.setDefaultTimeout(this.config.browser.navigationTimeout);

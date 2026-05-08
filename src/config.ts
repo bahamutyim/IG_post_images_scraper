@@ -21,6 +21,9 @@ const ConfigSchema = z.object({
     retryDelayMs: z.number(),
     pageWaitMs: z.number(),
   }),
+  instagram: z.object({
+    cookiesFile: z.string(),
+  }),
 });
 
 export type AppConfig = z.infer<typeof ConfigSchema>;
