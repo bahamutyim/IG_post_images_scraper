@@ -1,10 +1,10 @@
 import fs from 'fs';
 import path from 'path';
-import { chromium, DeviceDescriptor } from 'playwright';
+import { chromium } from 'playwright';
 import { Browser, BrowserContext, Cookie, Page } from 'playwright';
 import { AppConfig } from './config';
 
-const MOBILE_DEVICE: DeviceDescriptor = {
+const MOBILE_DEVICE = {
   name: 'iPhone 14',
   userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
   viewport: { width: 390, height: 844 },
