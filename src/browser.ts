@@ -1,8 +1,20 @@
 import fs from 'fs';
 import path from 'path';
-import { chromium } from 'playwright';
+import { chromium, DeviceDescriptor } from 'playwright';
 import { Browser, BrowserContext, Cookie, Page } from 'playwright';
 import { AppConfig } from './config';
+
+const MOBILE_DEVICE: DeviceDescriptor = {
+  name: 'iPhone 14',
+  userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
+  viewport: { width: 390, height: 844 },
+  deviceScaleFactor: 3,
+  isMobile: true,
+  hasTouch: true,
+  defaults: {
+    userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
+  },
+};
 
 let browserInstance: Browser | null = null;
 
@@ -33,11 +45,11 @@ export class BrowserManager {
   async createPage(): Promise<{ page: Page; context: BrowserContext }> {
     const browser = await this.getBrowser();
     const context = await browser.newContext({
-      userAgent: this.config.browser.userAgent,
-      viewport: {
-        width: this.config.browser.viewportWidth,
-        height: this.config.browser.viewportHeight,
-      },
+      userAgent: MOBILE_DEVICE.userAgent,
+      viewport: MOBILE_DEVICE.viewport,
+      deviceScaleFactor: MOBILE_DEVICE.deviceScaleFactor,
+      isMobile: MOBILE_DEVICE.isMobile,
+      hasTouch: MOBILE_DEVICE.hasTouch,
       locale: 'en-US',
       extraHTTPHeaders: {
         'Accept-Language': 'en-US,en;q=0.9',

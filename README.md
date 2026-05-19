@@ -76,7 +76,7 @@ Size modifiers like `s640x640`, `dst-jpg_e35_s640x640_tt6`, and crop prefixes li
 Configure `config/config.yaml`:
 ```yaml
 instagram:
-  cookiesFile: "d:\\raymoond\\ig.json"
+  cookiesFile: "/opt/ig.json"
 ```
 
 Cookies should be a JSON array of Playwright-compatible cookie objects (use `context.cookies()` from a logged-in session). Loaded automatically on each request. If cookies file is missing/empty, scraping continues unauthenticated (may hit private account errors).
