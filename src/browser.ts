@@ -4,19 +4,15 @@ import { chromium } from 'playwright';
 import { Browser, BrowserContext, Cookie, Page } from 'playwright';
 import { AppConfig } from './config';
 
+let browserInstance: Browser | null = null;
+
 const MOBILE_DEVICE = {
-  name: 'iPhone 14',
   userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
   viewport: { width: 390, height: 844 },
   deviceScaleFactor: 3,
   isMobile: true,
   hasTouch: true,
-  defaults: {
-    userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
-  },
 };
-
-let browserInstance: Browser | null = null;
 
 export class BrowserManager {
   private config: AppConfig;
@@ -57,6 +53,9 @@ export class BrowserManager {
         Referer: 'https://www.instagram.com/',
       },
     });
+
+    // Block image resources to speed up page loading - we only need DOM URLs
+    await context.route('**/*.{png,jpg,jpeg,gif,svg,webp,ico}', route => route.abort());
 
     // Import cookies if configured
     const cookiesFile = this.config.instagram?.cookiesFile;

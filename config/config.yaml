@@ -9,11 +9,11 @@ browser:
   viewportHeight: 1080
 
 scraping:
-  maxConcurrent: 3
+  maxConcurrent: 5
   rateLimitWindowMs: 60000
   maxRetries: 2
   retryDelayMs: 5000
-  pageWaitMs: 1000
+  pageWaitMs: 800
 
 instagram:
   cookiesFile: "D:\\raymond\\ig2.json"
